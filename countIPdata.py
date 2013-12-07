@@ -78,8 +78,8 @@ if len(sys.argv) < 4:
     print "Usage: python countIPdata.py <inputfile> <outputfile> <precision> \n"
 else:
     current = os.getcwd()
-    filename = current + sys.argv[1]
-    outputFile = current + sys.argv[2]
+    filename = current + "/" + sys.argv[1]
+    outputFile = current + "/" + sys.argv[2]
     
     data = readToDictionary(filename)
     sorted_data = sortAndShortenURLs(data,int(sys.argv[3]))
