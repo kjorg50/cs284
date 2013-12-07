@@ -9,6 +9,7 @@
 #
 #   then we output this data to another file.
 
+import os
 import sys
 import operator
 from collections import defaultdict
@@ -76,7 +77,7 @@ def writeOutput(outfilePath, tuples):
 if len(sys.argv) < 4:
     print "Usage: python countIPdata.py <inputfile> <outputfile> <precision> \n"
 else:
-    current = "/cs/student/kylejorgensen/cs284/"
+    current = os.getcwd()
     filename = current + sys.argv[1]
     outputFile = current + sys.argv[2]
     
