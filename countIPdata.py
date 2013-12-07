@@ -47,8 +47,9 @@ def sortAndShortenURLs(ip_dict, precision):
     numbers = ['1','2','3','4','5','6','7','8','9','0']
     
     for k, v in ip_dict.items():        
-        if k[0] not in numbers:
-            # it is a URL with name resolution, shorten it
+        if len(k) > 0 and k[-1] not in numbers:
+            # There are some URL's that start with numbers, but a real URL cannot end 
+            # in a number. So, if it is a URL with name resolution, shorten it
             url_list = k.split(".")
             
             # with precision=2, "stuff.website.com" will become "website.com" 
@@ -59,7 +60,10 @@ def sortAndShortenURLs(ip_dict, precision):
             del ip_dict[k]
 
             # add the new, short version
-            ip_dict[".".join(new_entry)] = v
+            shortened = ".".join(new_entry)
+            ip_dict[shortened] += v
+        elif len(k) == 0:
+            print "*** k had length " + str(len(k)) + " and the value in the dictionary was " + str(v) + "\n"
 
     return sorted(ip_dict.items(), key=operator.itemgetter(1), reverse=True)
 
