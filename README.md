@@ -32,3 +32,11 @@ And if I used precision equal to 2, the following output would be created:
 17.151.230.4 1
 ```
 
+## Combine IP Stats
+Combines sets of data created by countIPdata.py
+
+Usage:
+```
+python combineIPstats.py <inputfile1> <inputfile2> <outputfile>
+```
+
